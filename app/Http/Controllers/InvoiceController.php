@@ -72,11 +72,8 @@ class InvoiceController extends Controller implements IInvoiceController
 
     public function pdf(Invoice $invoice)
     {
-        $data = [
-            'titulo' => 'Styde.net'
-        ];
-
-        return PDF::loadView('pdf', $data)->download('archivo.pdf');
+        $data = Invoice::find($invoice->id);
+        return PDF::loadView('pdf', compact(collect($data)->toArray()))->download('archivo.pdf');
     }
 
 }
