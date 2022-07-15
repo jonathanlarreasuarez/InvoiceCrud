@@ -28,6 +28,11 @@
             <form method="post" action="{{ route('invoices.store') }}">
                 <div class="form-group">
                     @csrf
+                    <label for="country_name">Id Transaction:</label>
+                    <input type="text" value="" class="form-control" name="id_transaction"/>
+                </div>
+                <div class="form-group">
+                    @csrf
                     <label for="country_name">Razon social:</label>
                     <input type="text" value="" class="form-control" name="inv_razonSocial"/>
                 </div>
@@ -49,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <label for="cases">obligadoContabilidad :</label>
-                    <input type="text" value="" class="form-control" name="inv_obligadoContabilidad"/>
+                    <input type="text" value="SI" class="form-control" name="inv_obligadoContabilidad"/>
                 </div>
                 <div class="form-group">
                     <label for="cases">NumeroAutorizacionDocumento :</label>

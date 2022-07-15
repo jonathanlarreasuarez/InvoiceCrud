@@ -70,10 +70,10 @@ class InvoiceController extends Controller implements IInvoiceController
             ->with('success', 'Invoices is successfully deleted');
     }
 
-    public function pdf(Invoice $invoice)
+    public function pdf(int $id = null)
     {
-        $data = Invoice::find($invoice->id);
-        return PDF::loadView('pdf', compact(collect($data)->toArray()))->download('archivo.pdf');
+        $data = Invoice::where('id', $id)->first();
+        return PDF::loadView('pdf',  $data->toArray()  )->download('archivo.pdf');
     }
 
 }

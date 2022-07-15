@@ -20,4 +20,9 @@ Route::get('/', function () {
 
 Route::resource('invoices', InvoiceController::class);
 
-Route::get('pdf', 'App\Http\Controllers\InvoiceController@pdf')->name('pdf');
+//Route::get('pdf/{id}', 'App\Http\Controllers\InvoiceController@pdf')->name('pdf');
+
+Route::get('pdf/{id}', [App\Http\Controllers\InvoiceController::class, 'pdf'])->name('pdf');
+//Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

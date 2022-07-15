@@ -8,8 +8,15 @@
             margin-top: 40px;
         }
     </style>
+        <section class="jumbotron text-center">
+            <div class="container">
+              <h1 class="jumbotron-heading">CRUD INVOICE</h1>
+              <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+            </div>
+       </section>
     <div>
-        <a href="{{ route('invoices.create')}}" class="btn btn-primary">Add Invoice</a>
+        <a href="{{ route('invoices.create')}}" class="btn btn-primary">+ Add Invoice</a>
     </div>
     <div class="uper">
         @if(session()->get('success'))
@@ -46,7 +53,7 @@
                     <td>{{$game->inv_importeTotal}}</td>
                     <td>{{$game->inv_razonSocialComprador}}</td>
                     <td><a href="{{ route('invoices.edit', $game->id)}}" class="btn btn-primary">Edit</a></td>
-                    <td><a href="{{ route('pdf', $game->id) }}" class="btn btn-primary">PDF</a></td>
+                    <td><a href="{{ url('pdf/'.$game->id) }}" class="btn btn-primary">PDF</a></td>
                     <td>
                         <form action="{{ route('invoices.destroy', $game->id)}}" method="post">
                             @csrf
